@@ -15,7 +15,7 @@ const userSchema = new Schema({
     emailId: {
         type: String,
         required: true,
-        unique: true,
+        unique: true,  // If you add unique prperty, no need to add index property.
         lowercase: true,
         trim:true,
         validate(value){
@@ -61,6 +61,8 @@ const userSchema = new Schema({
 },{
     timestamps: true
 })
+
+userSchema.index({firstName: 1, lastName: 1})
 
 userSchema.methods.getJwt = async function(){
     const user = this
