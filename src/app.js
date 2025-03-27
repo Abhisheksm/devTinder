@@ -3,7 +3,13 @@ require('./config/database')
 const connectDB = require('./config/database');
 const app = express();
 const cookieParser = require('cookie-parser')
+const cors = require('cors')
 
+app.use(cors({
+    //To solve cors issue
+    origin: 'http://localhost:5173', 
+    //backend configuration to send cookies
+    credentials: true}))
 /*
 express.json() is the middleware used to parse the JSON which is coming from req body to Javascript object.
 */

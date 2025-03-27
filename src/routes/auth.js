@@ -48,7 +48,7 @@ router.post('/login', async (req, res) => {
            const token = await userData.getJwt()
 
            res.cookie("token",token)
-           res.send('User Logged in successfully!')
+           res.send(userData)
         }
     }
     catch (err) {
